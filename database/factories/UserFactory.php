@@ -29,6 +29,19 @@ class UserFactory extends Factory
             // 'email_verified_at' => now(),
             // 'password' => static::$password ??= Hash::make('password'),
             // 'remember_token' => Str::random(10),
+            'code_employee'=> fake()->randomNumber(6, true),
+            'name' => fake()->name(),
+            'email'=>fake()->unique()->safeEmail(),
+            'role_id' => 2,
+            'division_id' => fake()->numberBetween(1, 5),
+            'position_id'=> fake()->numberBetween(11, 20),
+            'birthday' => fake()->date(),
+            'gender' => fake()->numberBetween(0, 1),
+            'avatar' => 'https://randomuser.me/api/portraits/men/'.fake()->numberBetween(1, 100).'.jpg',
+            'phone' => fake()->phoneNumber(),
+            'address' => fake()->address(),
+            'password' => Hash::make('1234567890'),
+            'created_at' => now(),
         ];
     }
 
