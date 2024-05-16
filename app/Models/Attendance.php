@@ -17,4 +17,6 @@ class Attendance extends Model
     protected $fillable = [
         'user_id','check_date',
     ];
+    public function user(){
+        return $this->belongsTo(User::class);}
 }
