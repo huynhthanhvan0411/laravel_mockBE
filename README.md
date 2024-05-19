@@ -12,8 +12,11 @@
 - use factory and seeding 
 # controller 
 1.  EmployeeController: index(), update(), create(), delete(),show()
-2.  AuthController: 
+2.  AuthController: login(), register(), refresh()
+
 # request 
 1. for users
 - EmployeeRequest 
 2. for auth 
+- auth request 
+

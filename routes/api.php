@@ -20,10 +20,10 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function () {
     Route::post('login', [AuthController::class, 'login']);
     Route::post('me', [AuthController::class, 'me']);
 
-    // Route::post('logout', [AuthController::class, 'logout']);
+    Route::post('logout', [AuthController::class, 'logout']);
     // Route::post('refresh', [AuthController::class, 'refresh']);
 
-    // Route::post('register', [AuthController::class, 'register']);
+    Route::post('register', [AuthController::class, 'register']);
     // Route::post('reset-password', [AuthController::class, 'resetPassword']);
     // Route::post('forgot-password', [AuthController::class, 'createResetPasswordToken']);
 });
