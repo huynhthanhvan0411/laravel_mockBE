@@ -22,7 +22,11 @@ class AttendaceRequets extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'user_id' => 'required|exists:users,id',
+            'check_date' => 'required|date_format:Y-m-d H-m-s',
+            'created_at' => 'required',
+            'updated_at' => 'required',
+            'deleted_at' => 'required',
         ];
     }
 }
