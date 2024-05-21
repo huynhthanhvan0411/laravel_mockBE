@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\EmployeeControler;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AttendanceController;
 
 // Route::get('/employees', [EmployeeControler::class, 'index']);
 // Route::
@@ -26,4 +27,12 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function () {
     Route::post('register', [AuthController::class, 'register']);
     // Route::post('reset-password', [AuthController::class, 'resetPassword']);
     // Route::post('forgot-password', [AuthController::class, 'createResetPasswordToken']);
+});
+//attendance 
+ Route::group(['middleware' => 'api', 'prefix' => 'attendance'], function () {
+    Route::get('', [AttendanceController::class, 'index']);
+    Route::get('{id}', [AttendanceController::class, 'checkAttendance']);
+    Route::post('add', [AttendanceController::class, 'create']);
+    Route::put('update', [AttendanceController::class, 'update']);
+    Route::delete('delete/{id}', [AttendanceController::class, 'destroy']);
 });

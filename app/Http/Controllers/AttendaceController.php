@@ -35,11 +35,21 @@ class AttendaceController extends Controller
         $attendance = Attendance::where('user_id',$id)->get();
         try{
             if($attendance){
+                $checkIn = $attendance->first()->check_date;
+                $checkOut = $attendance->last()->check_date;
                 return response()->json([
                     'status' => 'success',
-                    'data' => $attendance
+                    'data' => [
+                        'user' =>$attendance->first()->user->name,
+                        'check_in' => $checkIn,
+                        'check_out' => $checkOut
+                    ]
                 ],Response::HTTP_OK);
             }
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Data not found'
+            ],Response::HTTP_NOT_FOUND);
         }catch(\Exception $e){
             return response()->json([
                 'status' => 'error',
